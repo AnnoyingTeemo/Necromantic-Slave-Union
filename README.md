@@ -1,2 +1,2 @@
-# Necromantic Intern Union
+# Necromantic Workers Union
  
