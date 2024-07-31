@@ -19,8 +19,7 @@ public class GameControl : MonoBehaviour
     public int month;
     public int year;
 
-    public int secondsInDay;
-    private int seconds = 0;
+    public float secondsInDay;
     private float updateWait;
     private float updateTimeScale = 0.02F;
 
@@ -34,13 +33,18 @@ public class GameControl : MonoBehaviour
     {
         updateWait += updateTimeScale;
 
-        if (updateWait >= 1) {
-            seconds += 1;
+        if (updateWait >= secondsInDay) {
             updateWait = 0;
+            day += 1;
 
-            if (seconds >= secondsInDay) {
-                day += 1;
-                seconds = 0;
+            if (day > 30) {
+                month += 1;
+                day = 0;
+
+                if (month > 12) {
+                    year += 1;
+                    month = 0;
+                }
             }
         }
 
@@ -67,6 +71,21 @@ public class GameControl : MonoBehaviour
 
     private string fourDigitTextCleanup(int input)
     {
-        return "test";
+        string output = input.ToString();
+
+        if (input < 1000)
+        {
+            output = "0" + output;
+        }
+        if (input < 100)
+        {
+            output = "0" + output;
+        }
+        if (input < 10)
+        {
+            output = "0" + output;
+        }
+
+        return output;
     }
 }

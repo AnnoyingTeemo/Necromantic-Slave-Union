@@ -480,7 +480,7 @@ MonoBehaviour:
   day: 0
   month: 0
   year: 0
-  secondsInDay: 5
+  secondsInDay: 0.5
   TimeUI: {fileID: 591024060}
 --- !u!1 &812266506
 GameObject:
